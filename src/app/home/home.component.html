@@ -1,0 +1,49 @@
+
+<div class="mb-3" >
+  <h3>Dodaj nowe zadanie</h3>
+  <form [formGroup]="taskForm" (ngSubmit)="submitTask()">
+    <div class="mb-3">
+      <label for="taskTitle" class="form-label">Tytuł</label>
+      <input type="text" class="form-control" id="taskTitle" formControlName="tytul">
+    </div>
+    <div class="mb-3">
+      <label for="taskDescription" class="form-label">Opis</label>
+      <textarea class="form-control" id="taskDescription" formControlName="opis"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="taskStatus" class="form-label">Status</label>
+      <select class="form-select" id="taskStatus" formControlName="status">
+        <option value="nowe">Nowe</option>
+        <option value="w trakcie">W trakcie</option>
+        <option value="zakonczone">Zakonczone</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!taskForm.valid">Dodaj</button>
+  </form>
+</div>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Tytuł</th>
+    <th scope="col">Opis</th>
+    <th scope="col">Status</th>
+    <th scope="col"> </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let t of tasksArray">
+    <th scope="row">{{t.id}}</th>
+    <td>{{t.tytul}}</td>
+    <td>{{t.opis}}</td>
+    <td>{{t.status}}</td>
+    <td>
+      <div class="btn-group" role="group">
+        <button class="btn btn-warning btn-sm" routerLink="edit/{{ t.id }}">Edytuj</button>
+        <button class="btn btn-danger btn-sm" (click)="deleteData(t.id)">Usuń</button>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>

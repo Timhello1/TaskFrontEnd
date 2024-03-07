@@ -1,0 +1,19 @@
+<form #loginForm="ngForm" (ngSubmit)="submitLogin()">
+  <h1 class="h3 mb-3 fw-normal">Podaj swoje dane</h1>
+  <div class="alert alert-danger" [hidden]="!error">
+    {{error}}
+  </div>
+  <div class="form-floating">
+    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required name="email" [(ngModel)]="form.email">
+    <label for="floatingInput">Adres email</label>
+  </div>
+  <div class="form-floating">
+    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required name="password" [(ngModel)]="form.password">
+    <label for="floatingPassword">hasło</label>
+  </div>
+
+
+  <button class="btn btn-primary w-100 py-2" type="submit" [disabled]="!loginForm.valid">Zaloguj</button>
+  <button class="btn btn-secondary w-100 py-2" type="button" (click)="goToRegister()">Nie mam konta</button>
+  <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
+</form>

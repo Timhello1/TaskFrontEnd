@@ -1,0 +1,24 @@
+
+<div class="mb-3" >
+  <h3>Zmień dane</h3>
+  <form [formGroup]="editForm" (ngSubmit)="editTask()">
+    <div class="mb-3">
+      <label for="taskTitle" class="form-label">Tytuł</label>
+      <input type="text" class="form-control" id="taskTitle" formControlName="tytul">
+    </div>
+    <div class="mb-3">
+      <label for="taskDescription" class="form-label">Opis</label>
+      <textarea class="form-control" id="taskDescription" formControlName="opis"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="taskStatus" class="form-label">Status</label>
+      <select class="form-select" id="taskStatus" formControlName="status">
+        <option value="nowe">Nowe</option>
+        <option value="w trakcie">W trakcie</option>
+        <option value="zakonczone">Zakonczone</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!editForm.valid">Zapisz</button>
+  </form>
+</div>
+

@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+  <div class="container-fluid">
+    <a routerLink="/" class="navbar-brand" *ngIf="loggedIn">Zadania</a>
+    <div>
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a routerLink="/Login" class="nav-link" aria-current="page" *ngIf="!loggedIn">Logowanie</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/Register" class="nav-link" aria-current="page" *ngIf="!loggedIn">Rejestracja</a>
+        </li>
+        <li class="nav-item">
+          <a href="/" class="nav-link" aria-current="page" (click)="logout($event)" *ngIf="loggedIn">Wyloguj</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

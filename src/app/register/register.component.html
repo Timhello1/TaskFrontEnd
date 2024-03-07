@@ -1,0 +1,24 @@
+<form #registrationForm="ngForm" (ngSubmit)="submitRegistration()">
+  <h1 class="h3 mb-3 fw-normal">Zarejestruj się</h1>
+
+  <div class="form-floating">
+    <input type="text" class="form-control" id="floatingName" placeholder="Nazwa" required name="name" [(ngModel)]="form.name">
+    <label for="floatingName">Nazwa użytkownika</label>
+  </div>
+  <div class="form-floating">
+    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required name="email" [(ngModel)]="form.email">
+    <label for="floatingInput">Adres email</label>
+  </div>
+  <div class="form-floating">
+    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required name="password" [(ngModel)]="form.password">
+    <label for="floatingPassword">hasło</label>
+  </div>
+  <div class="form-floating">
+    <input type="password" class="form-control" id="floatingConfirmPass" placeholder="Password" required name="password_confirmation" [(ngModel)]="form.password_confirmation">
+    <label for="floatingConfirmPass">Powtórz hasło</label>
+  </div>
+
+
+  <button class="btn btn-primary w-100 py-2" type="submit" [disabled]="!registrationForm.valid">Zaloguj</button>
+  <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
+</form>
